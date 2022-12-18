@@ -3,7 +3,7 @@ function plusOne(input1) {
     input1 = input1 + 1;
     return input1;
   }
-  //함수 표현식을 변수 minusOne에 할당
+//함수 표현식을 변수 minusOne에 할당
   let minusOne = function (input2) {
     input2 = input2 - 1;
     return input2;
@@ -18,4 +18,7 @@ function plusOne(input1) {
   let divideBy2 = function(input4){
     input4 = input4 / 2;
     return input4;
-  }
+  };
+
+  //함수는 ;로 안닫아도 됨
+  //return의 경우 무엇을 뱉어낼지 결정하는 것
