@@ -11,42 +11,52 @@ function getType(anything) {
 
   
 //2번 -- 배열을 입력받아 배열의 첫번째 요소를 리턴
-  function getFirstElement(arr) {           //
-    let firstNum = arr[0];                  
-    return firstNum;
+  function getFirstElement(arr) {           
+    let firstNum = arr[0];                  //firstNum에 배열의 0번째 인덱스 엘리먼트 추출하여 할당    
+    return firstNum;                        //추출된 엘리먼트 리턴
   }
   
-//3번
-  function getLastElement(arr) {
-    let lastNum = arr[arr.length-1];
-    return lastNum;
+
+//3번 -- 배열을 입력받아 배열의 마지막 요소를 리턴
+  function getLastElement(arr) {            
+    let lastNum = arr[arr.length-1];        //lastNum에 배열의 마지막 인덱스 엘리먼트를 추출하여 할당
+    return lastNum;                         //추출된 엘리먼트 리턴
   }
+/*
+인덱스는 0으로 시작하기 때문에 배열의 마지막 인덱스는 
+배열 전체 길이에서 -1을 해줘야함
+*/
   
-//4번
-  function getNthElement(arr, index) {
-    if(arr.length === 0){
-      return undefined;
-    }else if(arr.length <= index){
-      return 'out of index range';
+
+//4번 -- 배열과 수를 입력받아 수가 인덱스로 가리키는 배열의 요소를 리턴
+  function getNthElement(arr, index) {          //매개변수는 배열과 인덱스
+    if(arr.length === 0){                       //arr.length === 0 의 의미는 빈 배열인지 확인하는 것
+      return undefined;                         //undefined을 리턴
+    }else if(arr.length <= index){              //문자길이가 인덱스보다 작거나 같으면 = 인덱스가 배열 길이를 초과하면 
+      return 'out of index range';              //'범위 밖입니다' 리턴
     }else{
-      return arr[index];
+      return arr[index];                        //나머지 경우에 index번째 배열의 엘리먼트 리턴
     }
   }
+  /* 
+  빈 배열은 falsy한 갑이기 때문에
+  console.log(!arr.length)는 true
+  */
 
-  //5번
-  
+
+  //5번 -- 배열을 입력받아 배열의 모든 요소의 합을 리턴
   function computeSumOfAllElements(arr) {
-    let sum = 0;
-    for(let n = 0; n < arr.length; n++){
-      sum = sum + arr[n];
+    let sum = 0;                                //초기값은 0으로 설정                  
+    for(let n = 0; n < arr.length; n++){        //0번부터 문자길이-1까지 -> 모든 배열을 길이만큼 하나씩 증가시킴
+      sum = sum + arr[n];                       //for문이 한바퀴 돌고 한번씩 n이 증가될때마다 결과값에 n번째 인덱스값의 엘리먼트을 더해줌
     }
     return sum;
   }
   
-//6번 코드 비교
 
+//6번 코드 비교 -- 문자열을 입력받아, 문자열을 구성하는 각 단어를 요소로 갖는 배열을 리턴
 function getAllWords(str) {
-    let splt = str.split(" ");
+    let splt = str.split(" ");  
   
     if(str.length === 0){
       return [];
@@ -265,9 +275,12 @@ function mergeArrays(arr1, arr2) {
   
   
 /*
-
-  원본 배열을 변경하는 메서드, 원본 배열을 변경하지 않는 메서드입니다.
-원본 배열을 변경하는 메서드는 대표적으로 push, pop, shift, unshift등이 있고,
+배열 내장 매서드 -> 배열에 사용할 수 있는 자동으로 생성되어 있는 함수
+  1. 원본 배열을 변경하는 메서드 
+  2. 원본 배열을 변경하지 않는 메서드
+원본 배열을 변경하는 메서드는 대표적으로 push, pop, shift, unshift, splice등이 있고,
 원본 배열을 변경하지 않는 메서드는 slice, concat등이 있습니다.
 
+arr.length 가 9일때
+arr.push() 는 10 //추가된 길이를 리턴
 */
