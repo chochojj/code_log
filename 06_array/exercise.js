@@ -1,18 +1,18 @@
-//1번
-function getType(anything) {
-    if(Array.isArray(anything)){
-      return 'array';
-    }else if(anything === null){
-      return 'null';
-    }else{
-      return String(typeof (anything));
+//1번 -- 값을 입력받아서 타입을 리턴함 
+function getType(anything) {    
+    if(Array.isArray(anything)){            //만약 배열이면
+      return 'array';                       //문자열 '배열'을 리턴
+    }else if(anything === null){            //null이면
+      return 'null';                        //문자열 'null'을 리턴
+    }else{                                  //나머지 경우에
+      return String(typeof (anything));     //typeof연산자를 사용하여 타입을 리턴
     }
   }
 
   
-//2번
-  function getFirstElement(arr) {
-    let firstNum = arr[0];
+//2번 -- 배열을 입력받아 배열의 첫번째 요소를 리턴
+  function getFirstElement(arr) {           //
+    let firstNum = arr[0];                  
     return firstNum;
   }
   
@@ -264,3 +264,10 @@ function mergeArrays(arr1, arr2) {
   }
   
   
+/*
+
+  원본 배열을 변경하는 메서드, 원본 배열을 변경하지 않는 메서드입니다.
+원본 배열을 변경하는 메서드는 대표적으로 push, pop, shift, unshift등이 있고,
+원본 배열을 변경하지 않는 메서드는 slice, concat등이 있습니다.
+
+*/
