@@ -41,48 +41,71 @@ function removeProperty(obj, property) {
 //6번 -- 객체를 입력받아 number 타입의 값을 갖는 속성을 모두 제거
 function removeNumberValues(obj) {
     for(let key in obj){                                //객체의 모든 키를 처음부터 끝까지 순회 
-      if(typeof(obj[key]) === 'number'){                //
-        delete obj[key];
+      if(typeof(obj[key]) === 'number'){                //객체의 값의 타입이 숫자형인지 검사해서 숫자형이면
+        delete obj[key];                                //객체의 속성 삭제
       }
     }
   }
+  /*
+  객체을 반복문으로 돌릴때는 for in 구문을 사용해야함
+  배열의 경우 for of 구문 사용
+  */
 
-// in 사용
+
+ 
+//7번 -- 객체를 입력받아 배열을 값으로 갖는 속성을 모두 제거
 function removeArrayValues(obj) {
-    for(let key in obj){
-      if(Array.isArray(obj[key]) === true){
-          delete obj[key];
+    for(let key in obj){                                //객체의 모든 키를 처음부터 끝까지 순회
+      if(Array.isArray(obj[key]) === true){             //객체의 값이 배열인지 검사해서 배열이면
+          delete obj[key];                              //객체의 속성 삭제
       }
-      
     }
   }
+
+
   
-//
+//8번 -- 객체를 입력받아 홀수를 값으로 갖는 속성을 모두 제거
+//조건, 홀수 판단은 숫자형 타입에만 적용해주기
 function removeOddValues(obj) {
-    for(let key in obj){
-      if(obj[key]%2 !== 0 && typeof(obj[key]) !== 'string' ){
-        delete obj[key];
+    for(let key in obj){                                            //객체의 모든 키를 처음부터 끝까지 순회
+      if(obj[key]%2 !== 0 && typeof(obj[key]) !== 'string' ){       //객체의 값이 홀수이고, 문자형 타입이 아닌경우
+        delete obj[key];                                            //객체의 속성 삭제
       }
     }
   }
   
 
-//
+
+//9번 -- 객체를 입력받아 객체가 가진 age 속성값이 18세 이상인지 여부를 리턴
 function isPersonOldEnoughToVote(person) {
-    if(person['age'] >= 18){
-      return true;
+    if(person['age'] >= 18){                            //person객체의 age 키의 값이 18이상이면                  
+      return true;                                      //true값을 리턴
     }else{
-      return false;
+      return false;                                     //그렇지 않은 경우 false리턴
     }
   }
 
-//
-function addFullNameProperty(obj) {
-    let full = `${obj['firstName']} ${obj['lastName']}`;
-    obj.fullName = full;
-  }
 
-//
+
+//10번 -- 객체를 입력받아 'firstName','lastName' 속성 값 사이에 띄어쓰기 하나를 둔 단일 문자열을 fullName 속성값으로 할당 
+function addFullNameProperty(obj) {         
+    let full = `${obj['firstName']} ${obj['lastName']}`;        //객체의 firstName과 lastName 값을 빼내서 템플릿 리터럴로 연결해서 full변수에 할당
+    obj.fullName = full;                                        //객체의 fullName 키에 full변수를 값으로 할당
+  }
+/* 
+입출력 예시
+const person = {
+  firstName: 'Jade',
+  lastName: 'Smith',
+};
+
+addFullNameProperty(person);
+console.log(person.fullName); // --> 'Jade Smith'
+*/
+
+
+
+//11번 -- 
 function removeNumbersLargerThan(num, obj) {
     for(let key in obj){
       if(typeof(obj[key]) === 'number' && obj[key] > num ){
@@ -125,6 +148,7 @@ function select(arr, obj) {
     let blankObj = {};
     for(let i of arr){
       for(let key in obj){
+        //obj의 a라는 키랑, arr의 각 요소 비교
         if(i === key){
           blankObj[i] = obj[key];       //속성 값을 추가하고 있음
           //blankObj[a] = obj[a] => obj[a] === 1;
@@ -135,7 +159,13 @@ function select(arr, obj) {
       }
     }
     return blankObj;
-}
+  }
+  /*
+  const arr = ['a', 'c', 'e'];  //  i= a 혹은 c 혹은 e => 즉, 배열의 요소 
+  const obj = { a: 1, b: 2, c: 3, d: 4 };  // key는 obj의 속성 값
+  배열의 요소가 객체의 키로 있으면, 그 키와 값을 새로운 객체에 넣는다
+  배열의 요소와 객체의 키를 각각 비교 -> 문자열 가지고 두 문자열 중복된거 확인 => 이중반복문
+  */
 
 
 //
@@ -195,13 +225,28 @@ function extend(obj1, obj2) {
       }
     }
   }
-  // for (const property in object) {
-  //   console.log(`${property}: ${object[property]}`);
-  // }
-  // expected output:
-  // "a: 1"  키 : 값
-  // "b: 2"
-  // "c: 3"
+/* 
+중복되는지 여부를 확인해서 합쳐줌
+두번째 객체를 반복 -> 프로퍼티 모두 obj1에 추가
+조건: 첫번째에 이미 있으면 제외
+< 다른 방법 >
+for (let prop in obj2){
+if(prop in obj1){
+    continue;
+}else{
+    obj1[prop] = obj2[prop];
+}
+}
+
+
+*/
+// for (const property in object) {
+//   console.log(`${property}: ${object[property]}`);
+// }
+// expected output:
+// "a: 1"  키 : 값
+// "b: 2"
+// "c: 3"
   
   
   //
