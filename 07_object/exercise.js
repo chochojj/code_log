@@ -199,7 +199,7 @@ function extend(obj1, obj2) {
   //   console.log(`${property}: ${object[property]}`);
   // }
   // expected output:
-  // "a: 1"  키(속성) : 값
+  // "a: 1"  키 : 값
   // "b: 2"
   // "c: 3"
   
@@ -213,7 +213,7 @@ function extend(obj1, obj2) {
       if(!newObj[str[i]]){               
         newObj[str[i]] = 0;
       }
-      newObj[str[i]] = newObj[str[i]] + 1;
+      newObj[str[i]]++;             //newObi의 str[i]키의 값을 1 증가시킴
     }
     return newObj;
   }
@@ -243,3 +243,35 @@ function extend(obj1, obj2) {
   // i = i + 1;
   // i += 1;
   // i++;
+
+
+  //
+  function mostFrequentCharacter(str) {
+  
+    let newObj = {};
+    let max = 0;          
+    let wordFreq  = '';   //키랑 비교해줘야함, 리턴할 것
+    //공백이 나오면 건너뜀 
+  
+    for(let i = 0; i < str.length; i++){
+      if(str[i] === ' '){
+        continue;
+      }
+  
+      if(!newObj[str[i]]){               
+        newObj[str[i]] = 0;
+      }
+      newObj[str[i]] = newObj[str[i]] + 1;       //여기까지 20번과 동일
+  
+      if(newObj[str[i]] > max){
+       max = newObj[str[i]];
+       wordFreq = str[i];
+     }
+    }                                              
+     return wordFreq;
+  }
+  
+  
+  //반복문 돌리다가 공백이 나와서 건너뜀
+  //break -> 공백 나오면 반복문 종료
+  //continue -> 공백 나오면 그 횟수를 건너뜀
