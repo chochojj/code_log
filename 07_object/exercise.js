@@ -301,6 +301,32 @@ function countAllCharacters(str) {
 let output = countAllCharacters('banana');
 console.log(output); // --> {b: 1, a: 3, n: 2}
 
+<레퍼런스 설명>
+function countAllCharacters(str) {
+  // 입력: 문자열 'banana'
+  // 출력: 객체 {b:1, a:3, n:2} => { 문자열의 각 문자 : 나온 횟수 }
+
+  // 1. 리턴할 객체를 하나 만들어주면 되겠네요.
+  // 2. str의 모든 문자열을 순회하는 반복문을 만든다.
+    // 2-1. 각 문자를 키로, 값을 0으로 한 객체를 먼저 만든다. {b: 0, a: 0, n:0}
+    // -> 그 문자가 아직 키로 생성되지 않았을 때 -> in
+  // 3. 다시 순회하면서 문자가 등장할 때마다 1씩 증가 시킨다.
+  let obj = {};
+  for(let i = 0; i < str.length; i++) {
+    // str[0] -> 'b'
+    // str[1] -> 'a'
+    // str[2] -> 'n'
+    // str[3] -> 'a'
+    // str[4] -> 'n'
+    // str[5] -> 'a'
+    if (!(str[i] in obj)) {
+      obj[str[i]] = 0; // {b: 0, a: 0, n: 0}
+    }
+    obj[str[i]]++ // {b: 1, a: 3, n: 2}
+  }
+  return obj;
+}
+
 <참조>
 str = 'banana';
 str[0] = 'b';
@@ -311,33 +337,72 @@ i++;
 
 
 
-//21번 -- 문자열을 입력받아 가장 많
+//21번 -- 문자열을 입력받아 가장 많이 반복되는 문자를 리턴해야함
+//20번 문제에 조건이 추가된 형태
 function mostFrequentCharacter(str) {
 
   let newObj = {};
   let max = 0;          
-  let wordFreq  = '';   //키랑 비교해줘야함, 리턴할 것
-  //공백이 나오면 건너뜀 
-
+  let wordFreq  = '';                           //리턴할 것
+  
   for(let i = 0; i < str.length; i++){
-    if(str[i] === ' '){
+    if(str[i] === ' '){                         //공백이 나오면 건너뜀 
       continue;
     }
 
     if(!newObj[str[i]]){               
       newObj[str[i]] = 0;
     }
-    newObj[str[i]] = newObj[str[i]] + 1;       //여기까지 20번과 동일
+    newObj[str[i]] = newObj[str[i]] + 1;        //여기까지 20번과 동일
 
-    if(newObj[str[i]] > max){
-      max = newObj[str[i]];
-      wordFreq = str[i];
+    if(newObj[str[i]] > max){                   //만약 i인덱스의 객체의 값이 max변수와 비교해서 더 크면
+      max = newObj[str[i]];                     //max변수에 i인덱스의 객체 값을 담아줌
+      wordFreq = str[i];                        //wordFreq변수에 i인덱스의 키를 담아줌
     }
-  }                                              
+  }                                             //키를 리턴
     return wordFreq;
 }
+/*
+ <레퍼런스 설명>
+ function mostFrequentCharacter(str) {
+  // 20번도 어려운데 21번은 더 어려움.
+  // 20번: 객체만 만들면 된다. // 21번: 어떤 문자가 가장 많이 나왔는지 리턴.
+  // {b: 1, a: 3, n:2} -> a
+  // 20번 + 가장 많이 나온거 찾기 -> 비교 대상 하나 만들어 놓고 비교해서, 교체
+
+  // str = 'banana' 
+  // obj = {b: 1, a: 3, n:2} 이렇게 만들어준다 (20번 문제)
+  // 비교 대상을 미리 하나 만들어 놓고,
+  // 그거보다 커지면 교체
+
+  let mostChar = '';
+  let mostCount = 0;
+  let obj = {};
+  for(let i = 0; i < str.length; i++) {
+    // 공백이 나오면 건너 뛴다 (continue)
+    if (str[i] === ' ') {  // 'hello world'
+      continue; // str[6] -> 'w'
+    }
+    if(!(str[i] in obj)) {
+      obj[str[i]] = 0;
+    }
+    obj[str[i]]++; // {b: 1, a: 3, n: 2}
+
+    if(obj[str[i]] > mostCount) {
+      mostCount = obj[str[i]]; // 3
+      mostChar = str[i]; // 'a'
+    }
+  }
+  return mostChar;
+}
+
+// 반복문 돌리다가 공백이 나와서 건너 뛴다.
+// break -> 공백나오면 반복문 종료
+// continue -> 이번 횟수만 건너 뛴다.
+
+반복문 돌리다가 공백이 나와서 건너뜀
+break -> 공백 나오면 반복문 종료
+continue -> 공백 나오면 그 횟수를 건너뜀
+ */
 
 
-//반복문 돌리다가 공백이 나와서 건너뜀
-//break -> 공백 나오면 반복문 종료
-//continue -> 공백 나오면 그 횟수를 건너뜀
