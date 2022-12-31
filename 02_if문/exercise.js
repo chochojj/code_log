@@ -64,9 +64,188 @@ if(tname === 'kimcoding' && course === 'seb fe') {
 	console.log('일치하지 않는 정보입니다.')
 }
 
-
 //삼항 조건 연산자
 //if문과 else문을 삼항 조건 연산자로 바꿔 쓸 수 있음
 //조건식을 먼저 작성한 후 ? 를 입력한 후 뒤에 참 : 거짓일때 실행할 코드를 각각 입력함
 let fnum = 5;
 fnum % 2 === 0 ? console.log('짝수') : console.log('홀수'); // '홀수입니다.'
+
+
+
+//1번 -- 나이를 입력받아 18세 이상인지 리턴
+function isOldEnoughToDrink(age) {
+	if(age >= 18){      //조건)18세 이상이라면
+	  return true;
+	}else{              //그렇지 않을경우
+	  return false;
+	}
+  }
+  
+
+
+//2번 -- 수를 입력받아 3과 5로 나눈 뒤 나머지 값에 따라 알맞은 메세지 리턴
+function fizzBuzz(num) {
+	if (num%3 === 0 && num%5 === 0) {    	//3과 5의 공배수일 경우 
+		return 'FizzBuzz'		
+	}else if (num%3 === 0){               	//3의 배수일 경우
+	   return 'Fizz'
+	}else if (num%5 === 0){               	//5의 배수일 경우
+	   return 'Buzz'	
+	}else {
+	   return 'No FizzBuzz'         		//아무것도 아닐 경우
+	}
+  }
+
+
+
+//3번 -- 두 개의 수와 기호를 입력받아 알맞게 계산한 값을 리턴
+function miniCalculator(num1, num2, operator) {
+	if(operator === '+'){           // '+' 를 입력받을 경우
+	  return num1 + num2 ;
+	}else if(operator === '-'){     // '-' 를 입력받을 경우
+	  return num1 - num2 ;
+	}else if(operator === '*'){     // '*' 를 입력받을 경우
+	  return num1 * num2 ;
+	}else if(operator === '/'){     // '/'를 입력받을 경우
+	  return num1 / num2 ;
+	}
+}
+
+
+
+//4번 -- 점수를 입력받아 점수에 해당하는 등급을 리턴
+function convertScoreToGrade(score) {
+	if(score <= 100 && score >= 90){         //100-90점 사이
+	  return 'A'
+	}else if(score <= 89 && score >= 80){    // 90점 미만 80점 이상
+	  return 'B'
+	}else if(score <= 79 && score >= 70){    // 80점 미만 70정 이상
+	  return 'C'
+	}else if(score <= 69 && score >= 60){    // 70점 미만 60점 이상
+	  return 'D'
+	}else if(score <= 59 && score >= 0){    // 60점 미만
+	  return 'F'
+	}else{
+	  return 'INVALID SCORE'        //그 외 점수
+	}
+  }
+
+  
+
+//5번 -- 이름과 나이를 입력받아 나이별로 다른 메세지를 리턴
+function checkAge(name, age) {
+    if (age >= 21){
+      return `Welcome, ${name}!` //21살 이상
+    }else {
+      return `Go home, ${name}!` //20살 이하
+    }
+}
+
+
+
+//6번 -- 점수를 입력받아 점수에 해당하는 등급을 리턴 (진화형)
+//추가된 조건 > 끝점수가 8이상이면 등급에 +를, 2이하이면 -를 달아줘야함
+function convertScoreToGradeWithPlusAndMinus(score) {
+	let grade, plusMinus = '';
+	if(score === 100 ){
+	  return 'A+'
+	}else if(score < 100 && score >= 90){         //100-90점 사이
+	  grade = 'A';
+	}else if(score <= 89 && score >= 80){    // 90점 미만 80점 이상
+	  grade = 'B';
+	}else if(score <= 79 && score >= 70){    // 80점 미만 70정 이상
+	  grade = 'C';
+	}else if(score <= 69 && score >= 60){    // 70점 미만 60점 이상
+	  grade = 'D';
+	}else if(score <= 59 && score >= 0){    // 60점 미만
+	  return 'F';
+	}else{
+	  return 'INVALID SCORE'        //그 외 점수
+	}
+  
+									//새로운 조건
+	if(score%10 >= 8){              //끝자리가 8 이상
+	  plusMinus = '+';
+	}else if(score%10 <= 3){        //끝자리가 3이하
+	  plusMinus = '-';
+	}
+  
+  
+	return grade + plusMinus ;		//두 조건을 거친 변수를 합해줌
+}
+
+
+
+//7번 -- 시, 분, 초를 입력받아 1초를 더한 결과값을 특정 형태의 메세지로 리턴 (진화형)
+function addOneSecond(hour, minute, second) {
+	if(second === 59){            			//초의 경우 59초면
+	  minute = minute + 1;					//분에서 +1을 해주고
+	  second = 0;							//초는 0이 되게 한다
+	}else{
+	  second = second + 1;					//그렇지 않은 경우에 그냥 초에 +1 해주기
+	}
+  
+	if(minute === 60){						//분의 경우 60인 경우에
+	  hour = hour + 1;						//시에 +1을 해주고
+	  minute = 0;							//분은 0이 된다
+	}
+	if(hour === 24){						//시간이 24인 경우
+	  hour = 0;								//0이 됨
+	}
+  
+	return `1초 뒤에 ${hour}시 ${minute}분 ${second}초 입니다`   //백틱을 사용한 템플릿 리터럴 이용 
+  }
+  
+
+
+//8번 -- 차례대로 문자열 3개를 입력받아, 가장 짧은 문자열을 리턴 (진화형)
+function findShortestOfThreeWords(word1, word2, word3) {
+	let wordleg1 = word1.length 							// 문자열의 길이를 알기 위해 선언
+	let wordleg2 = word2.length
+	let wordleg3 = word3.length
+  
+	if(Math.min(wordleg1,wordleg2,wordleg3) === wordleg1){	 // 가장 짧은 것이 뭔지 알기 위해 math.min 씀
+	  return word1;
+	}
+	  else if(Math.min(wordleg1,wordleg2,wordleg3) === wordleg2){
+	  return word2;
+	}
+	  else if(Math.min(wordleg1,wordleg2,wordleg3) === wordleg3){
+	  return word3;
+	}
+}
+/*
+<math.min을 사용하지 않는 경우>
+function findShortestOfThreeWords(word1, word2, word3) {
+  let shortestWord = word1;
+
+  // 첫 번 째 글자가 2번째 글자보다 길 때
+  if (word1.length > word2.length) {
+    shortestWord = word2;
+    // word 2 랑 word 3을 비교
+    if (word2.length > word3.length) {
+      shortestWord = word3;
+    }
+  } else {
+    // word1 과 word3 을 비교
+    if (word1.length > word3.length) {
+      shortestWord = word3;
+    }
+  }
+  return shortestWord;
+}
+*/
+
+
+
+//9번 -- 사용자의 이름과 미접속 시간(분)을 입력받아 조건별로 다른 메세지를 리턴 (진화형)
+function makeLastSeenMsg(name, period) {
+	if(period < 60 ){														//60분 미만의 경우
+	  return `${name}: ${period}분 전에 접속함`
+	}else if (period < 1440 ) {												//1440 분 미만의 경우
+	  return `${name}: ${Math.floor(period/60)}시간 전에 접속함`			 //60으로 나눈다음 버림하여 시간으로 환산한 값을 출력	
+	} else if (period > 1440) {												//1440 분 이상의 경우
+	  return `${name}: ${Math.floor(period / 1440)}일 전에 접속함`			 //1440으로 나눈다음 버림하여 날일로 환산한 값을 출력
+	}
+}
+  
