@@ -1,81 +1,72 @@
-/* for문 만드는 법 */
-let result = 0;
-
-//for(초기값; 조건식; 증감식){ 실행코드 }
-for (let num = 1; num <= 5; num++) {
-  result = result + num;
-}
-console.log(result); // 15
-
-
-// 실습) 0부터 10까지의 숫자를 출력하는 코드를 반복문으로 작성하세요.
-for (let i = 0; i <= 10; i++) {
-  console.log(i); // 출력 0 1 2 3 4 5 6 7 8 9 10
+//if문은 주어진 조건식의 참/거짓 여부에 따라 실행이 결정됨
+//형식은 if(소괄호 안에 조건식){중괄호 안에 실행문};
+if (true) {								
+	console.log('hello world');      	//조건이 참이기 때문에 콘솔창에 hello world가 출력됨
 }
 
+//동치연산자 (===)
+//두 피연산자가 동일하면 true, 그렇지 않으면 false를 반환
+// !==는 반대로 동일하지 않을경우 true, 동일하면 false를 반환
+let firstName = 'kim';
+if (firstName === 'kim') {
+	console.log('중복된 이름입니다.'); // '중복된 이름입니다.'
+}
 
+let fullName = 'parkhacker';
+if (fullName !== 'kimcoding') {
+	console.log('가입할 수 있는 이름입니다.'); // '가입할 수 있는 이름입니다.'
+}
 
+//비교연산자 (<, >, <=, >=)
+//비교연산자는 두 연산자의 값의 크기를 비교
+let num = 5;
+if (num < 10) {
+	num = num + 1;
+}
 
-/* 문자열 인덱스 */
-let str = 'codestates';
-console.log(str[0]); // 'c'      인덱스는 0으로 시작
-console.log(str[4]); // 's'
-console.log(str.length); // 10   .length로 길이 조회
+//논리연산자(논리곱 &&, 논리합 ||)
+//복수의 조건을 작성할 수 있게 해줌
+// ||의 경우 여러 조건 중 하나만 참이여도 참으로 판단
+// &&의 경우 여러 조건 중 하나라도 거짓이면 거짓으로 판단, 따라서 모든 조건이 참일 경우에만 참으로 판단한다
+let age = 15;
+if (age > 13 && age <= 19) {
+	console.log('청소년입니다.'); // '청소년입니다.'
+}
 
-//문자열을 알수 없을때 이렇게 사용가능
-for (let i = 0; i <= str.length - 1; i++) {   //i < str.length; 로도 변환사용 가능
-    console.log(str[i]);
+//부정연산자 (!)
+//조건을 부정함 => 조건이 참이면 거짓, 거짓일 경우 참을 반환함
+let snum = 11;
+if (!(snum === 10)) {
+	console.log('변수 num은 10이 아닙니다.'); // '변수 num은 10이 아닙니다.'
+}
+
+//if문의 경우 조건식이 참일때만 코드가 실행됨
+//참일 경우와 거짓일 경우 각각 다른 코드를 실행시켜주기 위해 else를 사용함
+//else는 독립적으로 사용할 수 없음
+let tnum = 5;
+if (tnum % 2 === 0) {
+	console.log('짝수입니다.');
+} else {
+	console.log('홀수입니다.'); // '홀수입니다.'
+}
+/*
+이때 조건을 더 추가하고 싶으면 else if문을 사용
+if와 else는 두번 사용할 수 없지만 else if는 여러번 사용이 가능함
+*/
+let tname = 'kimcoding';
+let course = 'seb be'
+
+if(tname === 'kimcoding' && course === 'seb fe') {
+	console.log('정보가 일치합니다.')
+} else if (tname === 'kimcoding' && course !== 'seb fe') {
+	console.log('코스를 확인하세요.') // '코스를 확인하세요.'
+} else {
+	console.log('일치하지 않는 정보입니다.')
 }
 
 
-
-
-/* 반복문과 조건문 */
-//반복문안에 조건문이, 조건문 안에 반복문이 들어갈 수 있음
-
-// 실습) 1부터 10까지의 숫자 중 홀수만 출력하도록 코드를 작성하세요.
-for (let i = 1; i <= 10; i++) {
-	// 홀수만 출력하는 조건문
-	if (i % 2 === 1) {
-		console.log(i);
-	}
-}
-
-
-
-
-/* 반복문 중첩 */ 
-//반복문 중첩시 while문 보다 for문 사용
-for (let i = 1; i <= 6; i++) {
-	for (let j = 1; j <= 6; j++) {
-		console.log(`첫번째 주사위는 ${i}, 두번째 주사위는 ${j}입니다.`);
-	}
-}
-
-// 실습) 구구단
-for (let i = 2; i <= 9; i++) {
-    console.log(`${i}단`);
-    for (let j = 1; j <= 9; j++) {
-      console.log(`${i} x ${j} = ${i * j}`);
-    }
-  } 
-
-
-
-
-/* while문 */
-//조건식만 입력한 후 조건식이 true인 경우 코드를 반복 실행
-let num = 0;
-
-while (num < 3) {
-	console.log(num); // 0 1 2
-	num++
-}
-
-//do...while문
-do {
-	console.log('코드블록 내부의 코드는 최소 한 번은 실행됩니다.') 
-	// while문이 평가되는동안 코드블록 내부의 코드는 최소 한 번 실행
-} while (false)
-
-//while문의 경우 반복 횟수가 명확하지 않을때 주로 사용
+//삼항 조건 연산자
+//if문과 else문을 삼항 조건 연산자로 바꿔 쓸 수 있음
+//조건식을 먼저 작성한 후 ? 를 입력한 후 뒤에 참 : 거짓일때 실행할 코드를 각각 입력함
+let fnum = 5;
+fnum % 2 === 0 ? console.log('짝수') : console.log('홀수'); // '홀수입니다.'
