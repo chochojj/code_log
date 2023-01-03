@@ -20,7 +20,7 @@ typeof adder(5) // 'function'
 //함수를 두번 리턴하는 함수는 클로저의 가장 큰 특징
 const addermore = function (x) {        //x가 선언된 외부함수
     return function (y){                //y가 선언된 내부함수
-        return x + y ;                  //
+        return x + y ;                  
     }
 }
 //외부함수는 y에 접근할 수 없지만 (바깥 스코프 > 안쪽 스코프)
@@ -46,14 +46,14 @@ const divmaker = htmlMaker('div');
 
 
 //예시문제 
-let add = function(x) {
+let addnum = function(x) {
     let sum = function(y) {
       return x + y;
     }
     return sum;
   }
   
-  let foo = add(1); 
+  let foo = addnum(1); 
   foo(3);
   let total = foo(6); //7
 //let foo에 add(1)을 할당했을 때 x에 1의 값이 넘어간 채로 저장된다
