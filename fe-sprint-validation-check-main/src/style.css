@@ -6,6 +6,7 @@
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
   color: var(--bluish-gray-10);
   font-size: 16px;
+  text-decoration: none;
 }
 
 body {
@@ -230,7 +231,17 @@ input:focus {
 }
 .signModal > span {
   position: absolute;
-  top: 33%;
+  top: 28%;
   left: 22%;
+}
+.signModal > a {
+  position: absolute;
+  top: 58%;
+  left: 29%;
+  font-size: 12px;
+  color:var(--coz-blue-800);
+}
+.signModal > a:hover{
+  color:var(--peach-500);
 }
 

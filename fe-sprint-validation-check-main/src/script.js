@@ -7,7 +7,7 @@ const elInputPasswordCheck = document.querySelector('#password-retype');
 const elPasswordMiss = document.querySelector('.mismatch-message');
 const fillPassword = document.querySelector('.fillpassword-message');
 
-const signBtn = document.querySelector('.btn');
+const signBtn = document.querySelector('.signBtn');
 const popUp = document.querySelector('.signModal');
 /* 
 //아이디/비밀번호 유효성 검사도 하고싶음! > 만약 한다면 각 이벤트 어디에 들어가야할지
@@ -82,15 +82,16 @@ elInputPasswordCheck.onkeyup = function (){
 //onkeydown, onfocus, oninput 다 안됨 > 이미 사용되는 onkeyup 이벤트와 충돌해서 그런건지?
 
 
-//버튼 누르면 모달 뜨는것 >> 아직 구현 덜됨!!
-signBtn.addEventListener('click', popUpModal);
-
-function popUpModal() {
-  console.log('버튼눌림');
-  if(isMoreThan4Length && isMatch){
-    popUp.classList.remove('hide');
+//버튼 누르면 모달 뜨는것  -- 조건없이도 작동하는 오류
+signBtn.onclick = function(){
+  if(isMoreThan4Length){
+    if(isMatch){
+      popUp.classList.remove('hide');
+    }
+    return false
   }
 };
+
 
 function isMoreThan4Length(value) {
   return value.length >= 4
