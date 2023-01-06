@@ -17,39 +17,54 @@
 
   <body>
     <main>
-      <img
-        class="logo"
-        src="./images/codestates-logo.png"
-        alt="CODE_STATES_LOGO"
-      />
+      <section>
+        <span>회원가입</span>
 
-      <fieldset>
-        <input type="text" id="username" placeholder="아이디" />
-      
-      </fieldset>
+        <fieldset>
+          <input type="text" id="username" placeholder="아이디" />
         
-        <div class="success-message hide">사용할 수 있는 아이디입니다</div>
-        <div class="failure-message hide">아이디는 네 글자 이상이어야 합니다</div>
-      
-      <fieldset>
-        <input type="password" id="password" placeholder="비밀번호" />
-      </fieldset>
+        </fieldset>
+          
+          <div class="success-message hide">사용할 수 있는 아이디입니다</div>
+          <div class="failure-message hide">아이디는 네 글자 이상이어야 합니다</div>
+        
+        <fieldset>
+          <input type="password" id="password" placeholder="비밀번호" />
+        </fieldset>
 
-      <fieldset>
-        <input
-          type="password"
-          id="password-retype"
-          placeholder="비밀번호 확인"
-        />
-      </fieldset>
+        <fieldset>
+          <input
+            type="password"
+            id="password-retype"
+            placeholder="비밀번호 확인"
+          />
+        </fieldset>
 
-      <div class="fillpassword-message hide">비밀번호를 먼저 입력해주세요</div>
-      <div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div>
-      
+        <div class="fillpassword-message hide">비밀번호를 먼저 입력해주세요</div>
+        <div class="mismatch-message hide">비밀번호가 일치하지 않습니다</div>
 
-      <fieldset class="signup">
-        <button>회원가입</button>
-      </fieldset>
+        <fieldset class="signup">
+          <button class=".btn">Sign In</button>
+        </fieldset>
+        <div class="sns">
+          <a href="#"><img class="kakao" src="../src/images/kakao.png" alt="카카오톡"/></a>
+          <a href="#"><img class="google" src="../src/images/google.png" alt="구글"/></a>
+          <a href="#"><img class="facebook" src="../src/images/facebook.png" alt="페이스북"/></a>
+        </div>
+      </section>
+        <div class="bgdrop">
+          <div class="drop drop-1"></div>
+          <div class="drop drop-2"></div>
+          <div class="drop drop-3"></div>
+          <div class="drop drop-4"></div>
+          <div class="drop drop-5"></div>
+        </div>
+        
+        <div class="signModal hide" >
+          <span>환영합니다</span>
+        </div>
+
+
 
       <script src="script.js"></script>
     </main>

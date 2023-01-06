@@ -6,8 +6,18 @@ const elInputPassword = document.querySelector('#password');
 const elInputPasswordCheck = document.querySelector('#password-retype');
 const elPasswordMiss = document.querySelector('.mismatch-message');
 const fillPassword = document.querySelector('.fillpassword-message');
+
+const signBtn = document.querySelector('.btn');
+const popUp = document.querySelector('.signModal');
 /* 
 //아이디/비밀번호 유효성 검사도 하고싶음! > 만약 한다면 각 이벤트 어디에 들어가야할지
+
+function checkPassword(password){
+  if(!/^[a-zA-Z0-9]{8,16}$/.test(password)){
+    alert('숫자와 영문자 조합으로 8~16자리를 사용해야 합니다.');
+    return false;
+  }
+
 let checkNum = password.search(/[0-9]/g); // 숫자사용
 let checkEng = password.search(/[a-z]/ig); // 영문사용
 */
@@ -67,16 +77,20 @@ elInputPasswordCheck.onkeyup = function (){
     }
   }
 };
-
 //if문을 통해 비밀번호 값을 지운 이후 비밀번호 확인값을 지울때 하단 메세지가 계속 남아있는 오류 수정 
 //elInputPasswordCheck에 onchange 이벤트를 사용할 경우 마우스를 다른 영역 클릭해야 지워짐
 //onkeydown, onfocus, oninput 다 안됨 > 이미 사용되는 onkeyup 이벤트와 충돌해서 그런건지?
 
 
+//버튼 누르면 모달 뜨는것 >> 아직 구현 덜됨!!
+signBtn.addEventListener('click', popUpModal);
 
-
-
-
+function popUpModal() {
+  console.log('버튼눌림');
+  if(isMoreThan4Length && isMatch){
+    popUp.classList.remove('hide');
+  }
+};
 
 function isMoreThan4Length(value) {
   return value.length >= 4

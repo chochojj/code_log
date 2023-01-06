@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Poppins:wght@500&display=swap');
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  color: var(--gray-900);
-  background-color: var(--white);
+  color: var(--bluish-gray-10);
   font-size: 16px;
 }
 
@@ -14,37 +14,68 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
   background-image: linear-gradient(
-      to bottom,
-      rgba(69, 44, 221, 0.3),
-      rgba(255, 255, 255, 0)
-    ),
-    url('./images/codestates-motif.png');
+    217deg, rgba(255, 35, 90, 0.8), rgba(255, 161, 161, 0) 50.71%
+  ), linear-gradient(127deg, rgba(42, 255, 184, 0.8), rgba(162, 255, 208, 0) 70.71%),
+  linear-gradient(336deg, rgba(115, 28, 255, 0.8), rgba(145, 196, 255, 0) 70.71%),
+  url();
 }
 
 main {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  align-content: center;
+  display: flex;
+}
+section{
+  position: relative;
+  width: 15%;
+  min-width: 330px;
+  max-width: 330px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 24px;
   box-shadow: var(--big-box);
-  border: 1px solid var(--gray-10);
+  border: 3px solid rgba(255,255,255,0.1);
+  border-left: 1px solid var(--bluish-gray-300);
+  border-top: 1px solid var(--bluish-gray-300);
   border-radius: 4px;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  transition: all 1s ease-in-out;
+}
+section:hover{
+  margin: 10px;
 }
 
-h1 {
+span {
+  font-family: 'Noto Sans KR', sans-serif;
+  display: inline-block;
+  width: 112px;
   text-align: center;
-  font-size: 36px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 fieldset {
+  font-family: 'Noto Sans KR', sans-serif;
   display: flex;
   flex-direction: column;
   border-radius: 4px;
-  border-color: var(--gray-10);
+  border: 2px solid rgba(255,255,255,0.20);
   justify-content: center;
   margin: 4px;
   padding: 8px 12px;
+  background-color: rgba(255,255,255,0.20);
+}
+
+fieldset.signup {
+  border: 2px solid rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
 }
 
 fieldset > label {
@@ -52,37 +83,47 @@ fieldset > label {
   width: 112px;
 }
 
-main > div {
-  color: var(--peach-600);
+section > div {
+  color: var(--peach-700);
   font-size: 12px;
-  padding-left: 20px;
+  text-shadow: 0.3px 0.3px var(--peach-400);
+  width: 78%;
+}
+section > div.success-message {
+  color: var(--white);
+  text-shadow: none;
 }
 
-.logo {
-  margin: 12px auto 36px;
-  width: 144px;
-}
 
 button {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  width: 12rem;
+  width: 13rem;
   height: 2.25rem;
-  color: var(--white);
-  background-color: var(--coz-purple-600);
+  color: var(--coz-blue-800);
+  background-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(50px);
   font-size: 14px;
-  transition: all 0.3s;
+  transition: all 1s;
+  font-family: 'Poppins', sans-serif;
 }
 
 button:hover {
-  background-color: var(--coz-purple-500);
+  color: var(--white);
+  background-color: var(--coz-blue-800);
+  width: 12rem;
 }
 
 input {
   border: none;
   width: 12rem;
   font-size: 14px;
+  background-color: rgba(255, 255, 255, 0); 
+}
+
+input::placeholder {
+  color: var(--white);
 }
 
 input:focus {
@@ -96,3 +137,100 @@ input:focus {
 .signup {
   border: none;
 }
+
+.sns {
+  margin-top: 15px;
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  padding: 0 5px;
+}
+.sns > a {
+  width: 40%;
+  text-align: center;
+
+
+}
+.sns > a > img {
+  width: 65%;
+}
+
+.drop {
+  box-shadow: var(--big-box);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  border-left: 1px solid var(--bluish-gray-300);
+  border-top: 1px solid var(--bluish-gray-300);
+  position: absolute;
+  transition: all 1s ease;
+}
+.drop.drop-1 {
+  height: 80px;
+  width: 80px;
+  top: -50px;
+  left: -60px;
+}
+.drop.drop-1:hover{
+  margin: 5px;
+}
+.drop.drop-2{
+  height: 60px;
+  width: 60px;
+  top: 415px;
+  left: 230px;
+}
+.drop.drop-2:hover{
+  margin: 5px;
+}
+.drop.drop-3{
+  height: 160px;
+  width: 160px;
+  top: 285px;
+  left: 280px;
+  z-index: -1;
+}
+.drop.drop-3:hover{
+  margin: 5px;
+}
+.drop.drop-4{
+  height: 100px;
+  width: 100px;
+  top: -150px;
+  left: 250px;
+}
+.drop.drop-4:hover{
+  margin: 5px;
+}
+.drop.drop-5{
+  height: 40px;
+  width: 40px;
+  top: 180px;
+  left: 30px;
+  z-index: -1;
+}
+.drop.drop-5:hover{
+  margin: 5px;
+}
+
+.signModal{
+  box-shadow: var(--big-box);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  border-left: 1px solid var(--bluish-gray-300);
+  border-top: 1px solid var(--bluish-gray-300);
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  width: 60%;
+  height: 30%;
+}
+.signModal > span {
+  position: absolute;
+  top: 33%;
+  left: 22%;
+}
+
