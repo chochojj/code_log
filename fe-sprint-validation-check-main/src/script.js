@@ -6,6 +6,7 @@ const elInputPassword = document.querySelector('#password');
 const elInputPasswordCheck = document.querySelector('#password-retype');
 const elPasswordMiss = document.querySelector('.mismatch-message');
 const fillPassword = document.querySelector('.fillpassword-message');
+const section = document.querySelector('.formSection');
 
 const signBtn = document.querySelector('.signBtn');
 const popUp = document.querySelector('.signModal');
