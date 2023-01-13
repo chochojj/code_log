@@ -230,4 +230,30 @@ function studentReports(students) {
 
 
 
-//32번
+//32번 -- 2차원 배열(배열을 요소로 갖는 배열)을 입력받아 모든 수(number)의 합을 리턴
+function sumOfArraysInArray(arr) {
+  let accArr = arr.reduce(function(acc, cur){
+    return acc.concat(cur);
+  })
+  let num = accArr.filter(el => typeof el === 'number');
+  return num.reduce(function(acc, cur){
+    sum = acc + cur;
+    return sum
+  },0)
+}
+/*
+function sumOfArraysInArray(arr) {
+  let accArr = arr.reduce(function(acc, cur){
+    return acc.concat(cur);
+  })
+  let num = accArr.filter(el => typeof el === 'number');
+  if(num.length === 0){
+    return 0
+  }
+  return num.reduce(function(acc, cur){
+    sum = acc + cur;
+    return sum
+  })
+}
+// 배열에 숫자가 없으면 0이 리턴되는 부분을 조건식으로 먼저 빼줘도 같은 코드임
+*/
