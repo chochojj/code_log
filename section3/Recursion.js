@@ -1,5 +1,6 @@
 // 1번 - 수(num)를 입력받아 1부터 num까지의 합을 리턴
 function sumTo(num) {
+    //if는 재귀 함수의 탈출조건 , if문의 return은 탈출시 뱉어낼 작은 형태의 문제의 답
     if(num === 0 ) return 0
     return num + sumTo(num - 1)
 }
@@ -131,7 +132,6 @@ function unpackGiftbox(giftBox, wish) {
 
 // 15번 - 다차원 배열을 입력받아 1차원 배열로 변환하여 리턴
 function flattenArr(arr) {
-    // TODO: 여기에 코드를 작성합니다.
     let result = [];
     if(arr.length === 0 ) return result;
     for(let el of arr){
